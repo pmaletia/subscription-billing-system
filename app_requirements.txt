@@ -1,0 +1,54 @@
+Objective
+Design a basic subscription billing backend that supports user sign-up, plan subscription, automatic invoice generation using Celery, and simple billing lifecycle tracking
+
+Requirements
+Models: User, Plan, Subscription, Invoice.
+Use Celery to:
+Generate monthly invoices.
+Mark unpaid invoices
+Send reminders.
+       3. Provide APIs for
+
+User subscribing/unsubscribing
+Viewing invoices and payment status
+
+
+  Detailed Explanation:
+
+1. Plans & Subscriptions
+
+Implement predefined plans: Basic, Pro, Enterprise
+Users can subscribe to one of the plans.
+Store: start_date, end_date, status (active, cancelled, expired)
+2. Invoice Management
+
+For every active subscription:
+Generate an invoice at the start of each billing cycle (simulated via Celery periodic task)
+Fields: user, plan, amount, issue_date, due_date, status (pending, paid)
+3. Celery Integration
+
+Automatically generate invoices daily for subscriptions starting that day.
+Mark overdue invoices if due_date has passed without payment.
+
+
+Bonus:
+
+Send a reminder email if invoice is still unpaid (can be console print or mock).
+Add Stripe integration (mock/real). Stripe is widely used for SaaS billing
+
+
+
+
+Submission Guidelines:
+Submit the Python script along with any necessary configuration files.
+Include a README file explaining how to run the scraper, install dependencies, and any additional information about the project.
+If you've implemented bonus functionalities, explain them in the README.
+
+
+Evaluation Criteria:
+
+Code Quality: Evaluate the clarity, readability, and structure of the code. Look for proper naming conventions, comments, and consistent indentation.
+Functionality: Check if the scraper successfully extracts movie information from multiple pages and handles pagination correctly. Ensure that the extracted data is accurate and complete.
+Error Handling: Evaluate how the script handles errors and edge cases. Bonus points if the code includes meaningful error messages and logging.
+Bonus Functionalities: If the candidate has implemented any bonus functionalities, assess the quality and effectiveness of those features.
+Testing: If unit tests are provided, evaluate their coverage and effectiveness in validating the scraper's functionality.
